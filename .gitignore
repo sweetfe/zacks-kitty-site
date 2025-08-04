@@ -1,0 +1,11 @@
+# macOS resource fork files
+._*
+
+# IDE files
+.vscode/
+
+# Log files
+*.log
+
+# Environment files
+.env

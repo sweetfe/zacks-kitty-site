@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zack's Accidental Kitty Haven</title>
+  <link rel="icon" type="image/png" href="images/tab—Pngtree—adorable smiling pink cat face_18241534.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="index.html"><img src="images/zack-kitty-site-banner.png" alt="Home" style="height: 190px;"></a>
+  
+  <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+  <h1>Welcome to Zack's Accidental Kitty Haven</h1>
+  <p>A beautiful website dedicated to Zack's amazing kitties! </p>
+  <p class="indent">Showcase your feline friend's unique personality. </p>
+  <p class="double-indent">Share their stories and adventures.</p>
+  
+  <!-- Zack: This is your custom banner image -->
+  
+  <nav style="text-align: center;">
+    <a href="about.html">About Zack's Havens</a> |
+    <a href="name.html">Cat Names</a> |
+    <a href="contact.html">Contact</a>
+  </nav>
+<br>
+<h2><center>Cat Stories</center></h2>
+<br>
+<div class="story-container">
+  <div class="story-box">
+    <img src="images/zack-kitty-site-banner.png" alt="Zack's kitty being cozy" class="story-preview">
+    <h3><a href="story.html">Zack's Kitty Story</a></h3>
+  </div>
+</div>
+</br>
+ 
+<!-- Interactive Buttons Container -->
+<div class="buttons-container">
+  <!-- Paw Print Button -->
+  <div class="button-wrapper">
+    <button id="pawTestButton" class="interactive-button">
+      <img src="images/pinkcatpaw4walking.png" alt="Paw Print" class="button-image">
+    </button>
+    <p class="button-label">Paw Prints</p>
+  </div>
+
+  <!-- Fortune Cat Button -->
+  <div class="button-wrapper">
+    <button id="fortuneCatButton" class="interactive-button">
+      <img src="images/MallaHelper.png" alt="Fortune Cat" class="button-image">
+    </button>
+    <p class="button-label">Fortune Cat</p>
+  </div>
+
+  <!-- Meow Button -->
+  <div class="button-wrapper">
+    <button id="meowButton" class="interactive-button">
+      <img src="images/pinkcatpaw4walking.png" alt="Meow" class="button-image">
+    </button>
+    <p class="button-label">Meow</p>
+  </div>
+  
+  <!-- Adopt a Cat Button -->
+  <div class="button-wrapper">
+    <button id="adoptCatButton" class="interactive-button">
+      <img src="images/pinkcatpaw4walking.png" alt="Adopt a Cat" class="button-image">
+    </button>
+    <p class="button-label">Adopt a Kitty</p>
+  </div>
+</div>
+
+<!-- Fortune Message Display -->
+<div id="fortuneMessage" class="fortune-message" style="display: none;">
+  <p id="fortuneText"></p>
+  <button id="closeFortune">Close</button>
+</div>
+
+<!-- Audio element for meow sound -->
+<audio id="meowSound" preload="auto">
+  <source src="images/sounds/catnapped.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+ 
+<script>
+  // Function to create and animate a paw print
+  function createPawPrint() {
+    console.log('Creating a paw print');
+    // Create paw print element
+    const pawPrint = document.createElement('div');
+    pawPrint.className = 'paw-print';
+    console.log('Created paw print element with class:', pawPrint.className);
+    
+    // Random position
+    const startX = Math.random() * (window.innerWidth - 150);
+    const startY = Math.random() * (window.innerHeight - 150);
+    pawPrint.style.left = startX + 'px';
+    pawPrint.style.top = startY + 'px';
+    console.log('Position set to:', startX, startY);
+    
+    // Random rotation
+    const rotation = Math.random() * 360;
+    pawPrint.style.transform = `rotate(${rotation}deg)`;
+    console.log('Rotation set to:', rotation);
+    
+    // Random animation
+    const animations = ['walkDiagonal', 'walkHorizontal', 'walkVertical'];
+    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+    pawPrint.style.animation = `${randomAnimation} 3s linear forwards`;
+    console.log('Animation set to:', randomAnimation);
+    
+    // Add to page
+    document.body.appendChild(pawPrint);
+    console.log('Paw print added to page');
+    
+    // Remove element after animation completes
+    setTimeout(() => {
+      console.log('Removing paw print');
+      pawPrint.remove();
+    }, 3000);
+  }
+  
+  // Function to start the paw print animation sequence
+  function startPawPrints() {
+    console.log('Creating paw prints');
+    // Create 3-5 paw prints in quick succession
+    const numPrints = Math.floor(Math.random() * 3) + 3;
+    console.log('Number of prints to create:', numPrints);
+    for (let i = 0; i < numPrints; i++) {
+      setTimeout(() => {
+        createPawPrint();
+      }, i * 300); // Stagger the prints by 300ms
+    }
+  }
+  
+  // Start the animation cycle
+  function startAnimationCycle() {
+    console.log('Starting paw print animation cycle');
+    // Start first set of paw prints
+    startPawPrints();
+    
+    // Schedule next set of paw prints after a random delay (3-5 minutes)
+    const randomDelay = Math.floor(Math.random() * 120000) + 180000; // 3-5 minutes in ms
+    console.log('Next cycle scheduled in:', randomDelay, 'ms');
+    setTimeout(startAnimationCycle, randomDelay);
+  }
+  
+  // Start the animation cycle after the page loads
+  window.addEventListener('load', () => {
+    console.log('Page loaded, setting up paw print animation');
+    // Initial delay of 30 seconds to 1 minute before first animation
+    const initialDelay = Math.floor(Math.random() * 30000) + 30000; // 30-60 seconds in ms
+    console.log('Initial delay set to:', initialDelay, 'ms');
+    setTimeout(() => {
+      console.log('Starting animation cycle');
+      startAnimationCycle();
+    }, initialDelay);
+  });
+  
+  // Add event listener for paw print test button
+  // Directly attach event listener since script is at bottom of page
+  const pawTestButton = document.getElementById('pawTestButton');
+  if (pawTestButton) {
+    pawTestButton.addEventListener('click', () => {
+      console.log('Paw print test button clicked');
+      startPawPrints();
+    });
+  } else {
+    console.error('Paw test button not found');
+  }
+  
+  // Feline wisdom messages
+  const felineWisdom = [
+    "Purrs and cuddles are the best medicine.",
+    "Curiosity didn't kill this cat - it made me wiser!",
+    "Nap often, nap well, nap everywhere.",
+    "The best way to steal someone's heart is with gentle head bumps.",
+    "Patience is a virtue, especially when waiting for treats.",
+    "Sunbeams are nature's gift to cats.",
+    "Always land perfectly after leaping from impossible heights.",
+    "The cardboard box is mightier than the throne.",
+    "Rule with gentle paws and a soft purr.",
+    "Nine lives mean nine chances to be fabulous.",
+    "Hunt small things, ignore big problems.",
+    "The best conversations happen at 3 AM.",
+    "Flexibility is key - especially when fitting in small boxes.",
+    "Trust your whiskers - they know the way.",
+    "Elegance is in the way you walk away from trouble."
+  ];
+  
+  // Add event listener for fortune cat button
+  const fortuneCatButton = document.getElementById('fortuneCatButton');
+  const fortuneMessage = document.getElementById('fortuneMessage');
+  const fortuneText = document.getElementById('fortuneText');
+  const closeFortune = document.getElementById('closeFortune');
+  
+  if (fortuneCatButton && fortuneMessage && fortuneText && closeFortune) {
+    fortuneCatButton.addEventListener('click', () => {
+      console.log('Fortune cat button clicked');
+      
+      // Get random wisdom message
+      const randomIndex = Math.floor(Math.random() * felineWisdom.length);
+      const wisdom = felineWisdom[randomIndex];
+      
+      // Display the message
+      fortuneText.textContent = wisdom;
+      fortuneMessage.style.display = 'block';
+    });
+    
+    // Add event listener for close button
+    closeFortune.addEventListener('click', () => {
+      fortuneMessage.style.display = 'none';
+    });
+  } else {
+    console.error('Fortune cat elements not found');
+  }
+  
+  // Add event listener for meow button
+  const meowButton = document.getElementById('meowButton');
+  const meowSound = document.getElementById('meowSound');
+  
+  if (meowButton && meowSound) {
+    meowButton.addEventListener('click', () => {
+      console.log('Meow button clicked');
+      
+      // Reset audio to start
+      meowSound.currentTime = 0;
+      // Play the meow sound
+      meowSound.play().catch(error => {
+        console.error('Error playing meow sound:', error);
+      });
+    });
+  } else {
+    console.error('Meow button or audio element not found');
+  }
+  
+  // Cat adoption data
+  const catsData = [
+    {
+      name: "Zack's Kitty",
+      personality: "Playful and curious, loves exploring every corner of the house",
+      imageUrl: "images/zack-kitty-site-banner.png"
+    }
+  ];
+  
+  // Current cat index for browsing
+  let currentCatIndex = 0;
+  
+  // Function to get a random cat
+  function getRandomCat() {
+    const randomIndex = Math.floor(Math.random() * catsData.length);
+    return catsData[randomIndex];
+  }
+  
+  // Function to display cat browser
+  function displayCatBrowser() {
+    // Create browser element if it doesn't exist
+    let browser = document.getElementById('catBrowser');
+    if (!browser) {
+      browser = document.createElement('div');
+      browser.id = 'catBrowser';
+      browser.className = 'cat-browser';
+      document.body.appendChild(browser);
+    }
+    
+    // Fill browser with cat information
+    const cat = catsData[currentCatIndex];
+    browser.innerHTML = `
+      <div class="browser-content">
+        <h2>Find Your Perfect Kitty</h2>
+        <div class="browser-navigation">
+          <button id="prevCat" class="nav-button">←</button>
+          <div class="cat-display">
+            <img src="${cat.imageUrl}" alt="${cat.name}" class="browser-cat-image">
+            <h3>${cat.name}</h3>
+            <p>${cat.personality}</p>
+          </div>
+          <button id="nextCat" class="nav-button">→</button>
+        </div>
+        <div class="browser-buttons">
+          <button id="closeBrowser">Close</button>
+          <button id="adoptCurrentCat">Adopt ${cat.name}!</button>
+        </div>
+      </div>
+    `;
+    
+    // Show the browser
+    browser.style.display = 'block';
+    
+    // Add event listeners for browser buttons
+    document.getElementById('closeBrowser').addEventListener('click', () => {
+      browser.style.display = 'none';
+    });
+    
+    document.getElementById('adoptCurrentCat').addEventListener('click', () => {
+      browser.style.display = 'none';
+      displayAdoptionCertificate(cat);
+    });
+    
+    document.getElementById('prevCat').addEventListener('click', () => {
+      currentCatIndex = (currentCatIndex - 1 + catsData.length) % catsData.length;
+      displayCatBrowser();
+    });
+    
+    document.getElementById('nextCat').addEventListener('click', () => {
+      currentCatIndex = (currentCatIndex + 1) % catsData.length;
+      displayCatBrowser();
+    });
+  }
+  
+  // Function to display adoption certificate
+  function displayAdoptionCertificate(cat) {
+    // Create certificate element if it doesn't exist
+    let certificate = document.getElementById('adoptionCertificate');
+    if (!certificate) {
+      certificate = document.createElement('div');
+      certificate.id = 'adoptionCertificate';
+      certificate.className = 'adoption-certificate';
+      document.body.appendChild(certificate);
+    }
+    
+    // Fill certificate with cat information
+    certificate.innerHTML = `
+      <div class="certificate-content">
+        <h2>Cat Adoption Certificate</h2>
+        <img src="${cat.imageUrl}" alt="${cat.name}" class="certificate-cat-image">
+        <h3>This certifies that you have adopted</h3>
+        <h1>${cat.name}</h1>
+        <p>Personality: ${cat.personality}</p>
+        <p>Congratulations on your new feline friend!</p>
+        <button id="closeCertificate">Close</button>
+        <button id="printCertificate">Print</button>
+      </div>
+    `;
+    
+    // Show the certificate
+    certificate.style.display = 'block';
+    
+    // Add event listeners for certificate buttons
+    document.getElementById('closeCertificate').addEventListener('click', () => {
+      certificate.style.display = 'none';
+    });
+    
+    document.getElementById('printCertificate').addEventListener('click', () => {
+      window.print();
+    });
+  }
+  
+  // Add event listener for adopt cat button
+  const adoptCatButton = document.getElementById('adoptCatButton');
+  if (adoptCatButton) {
+    adoptCatButton.addEventListener('click', () => {
+      console.log('Adopt a Cat button clicked');
+      
+      // Reset to random cat index
+      currentCatIndex = Math.floor(Math.random() * catsData.length);
+      
+      // Display cat browser
+      displayCatBrowser();
+    });
+  } else {
+    console.error('Adopt Cat button not found');
+  }
+  
+  // Dark mode toggle function
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    
+    // Save preference to localStorage
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+  }
+  
+  // Check for saved dark mode preference
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+  });
+</script>
+</body>
+</html>

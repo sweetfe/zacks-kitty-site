@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zack's Accidental Kitty Haven</title>
+  <link rel="icon" type="image/png" href="images/tab—Pngtree—adorable smiling pink cat face_18241534.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="images/zack-kitty-site-banner.png" alt="Home" style="height: 190px;"></a>
+    <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    <h1>About Zack's Haven</h1>
+      <img src="images/ComputerMalla1.png" alt="Cat computer support">
+      <!-- Zack: Replace the image above with a photo of your kitty -->
+
+    <nav style="text-align: center;">
+      <a href="name.html">Cat Names</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="cat-qualities">
+      <h2>Zack and the Cat-Filled Cupboard</h2>
+      <h3>A Modern Tale of Too Many Cats (and Just Enough Love)</h3>
+      
+      <p>Once upon a time, in a cozy house just outside the city, lived a man named Zack.</p>
+      
+      <p>Now, Zack didn't set out to run a cat sanctuary.<br>
+      He just had a soft spot for creatures with dirty paws and wary eyes.</p>
+      
+      <p>It started with one.<br>
+      A scruffy tabby under his porch.<br>
+      "Just until I find a home," he said.<br>
+      (He still says that. Every time.)</p>
+      
+      <p>Then came a kitten stuck in a storm drain.<br>
+      Then a pregnant cat left near the dumpster.<br>
+      Then two brothers who followed him home like tiny, meowing shadows.</p>
+      
+      <p>And before he knew it —<br>
+      his house was full.<br>
+      Not with clutter.<br>
+      Not with noise.<br>
+      But with purring.</p>
+      
+      <p>There were cats on the couch.<br>
+      Cats in the sink.<br>
+      Cats sleeping in his boots.<br>
+      Cats who had opinions about his coding.<br>
+      Cats who demanded snacks at 3 a.m. like tiny, furry overlords.</p>
+      
+      <p>His friends said, "Zack, you can't save them all."<br>
+      And he'd smile and say,<br>
+      "I don't have to save them all.<br>
+      I just have to save this one."</p>
+      
+      <p>And so, one by one, the strays became family.</p>
+      
+      <p>But here's the thing about love:<br>
+      👉 It grows.<br>
+      And Zack's heart?<br>
+      It's bigger than his house.</p>
+      
+      <p>Still...<br>
+      each cat has a story.<br>
+      Each one deserves to be the only one — just for a little while —<br>
+      to curl up in someone's lap,<br>
+      to hear their name called with joy,<br>
+      to know they are chosen.</p>
+      
+      <p>So while Zack will always leave the door cracked for the next stray...<br>
+      he also hopes his furry crew finds homes where they can be someone's whole world —<br>
+      not just one of many.</p>
+      
+      <p>Because every cat deserves a lap to claim,<br>
+      a window to watch,<br>
+      and someone who says,<br>
+      "You're home."</p>
+    </section>
+  </main>
+  
+  <script>
+    // Function to create and animate a paw print
+    function createPawPrint() {
+      // Create paw print element
+      const pawPrint = document.createElement('div');
+      pawPrint.className = 'paw-print';
+      
+      // Random position
+      const startX = Math.random() * (window.innerWidth - 150);
+      const startY = Math.random() * (window.innerHeight - 150);
+      pawPrint.style.left = startX + 'px';
+      pawPrint.style.top = startY + 'px';
+      
+      // Random rotation
+      const rotation = Math.random() * 360;
+      pawPrint.style.transform = `rotate(${rotation}deg)`;
+      
+      // Random animation
+      const animations = ['walkDiagonal', 'walkHorizontal', 'walkVertical'];
+      const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+      pawPrint.style.animation = `${randomAnimation} 3s linear forwards`;
+      
+      // Add to page
+      document.body.appendChild(pawPrint);
+      
+      // Remove element after animation completes
+      setTimeout(() => {
+        pawPrint.remove();
+      }, 3000);
+    }
+    
+    // Function to start the paw print animation sequence
+    function startPawPrints() {
+      // Create 3-5 paw prints in quick succession
+      const numPrints = Math.floor(Math.random() * 3) + 3;
+      for (let i = 0; i < numPrints; i++) {
+        setTimeout(() => {
+          createPawPrint();
+        }, i * 300); // Stagger the prints by 300ms
+      }
+    }
+    
+    // Start the animation cycle
+    function startAnimationCycle() {
+      // Start first set of paw prints
+      startPawPrints();
+      
+      // Schedule next set of paw prints after a random delay (3-5 minutes)
+      const randomDelay = Math.floor(Math.random() * 120000) + 180000; // 3-5 minutes in ms
+      setTimeout(startAnimationCycle, randomDelay);
+    }
+    
+    // Start the animation cycle after the page loads
+    window.addEventListener('load', () => {
+      // Initial delay of 30 seconds to 1 minute before first animation
+      const initialDelay = Math.floor(Math.random() * 30000) + 30000; // 30-60 seconds in ms
+      setTimeout(startAnimationCycle, initialDelay);
+    });
+  </script>
+  
+  <script>
+    // Dark mode toggle function
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      
+      // Save preference to localStorage
+      const isDarkMode = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDarkMode);
+    }
+    
+    // Check for saved dark mode preference
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedDarkMode = localStorage.getItem('darkMode');
+      if (savedDarkMode === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+  </script>
+</body>
+</html>

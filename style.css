@@ -197,7 +197,7 @@ p {
 }
 
 .interactive-button:hover {
-  background-color: #d89a9a;
+  background-color: #40E0D0;
   transform: scale(1.1);
 }
 
@@ -494,7 +494,7 @@ body {
 }
 
 .dark-mode .interactive-button:hover {
-  background-color: #444;
+  background-color: #008080;
 }
 
 .dark-mode .button-label {

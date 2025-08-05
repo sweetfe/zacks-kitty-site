@@ -182,8 +182,8 @@ p {
 }
 
 .interactive-button {
-  background-color: #f9f3f0;
-  border: 2px solid #d89a9a;
+  background-color: #f5deb3;
+  border: 2px solid #8b4513;
   border-radius: 50%; /* Makes it circular */
   padding: 20px;
   cursor: pointer;
@@ -490,7 +490,7 @@ body {
 
 .dark-mode .interactive-button {
   background-color: #333;
-  border-color: #9fd;
+  border-color: #d2691e;
 }
 
 .dark-mode .interactive-button:hover {

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
    background-color: #f9f3f0;
     color: #333;
     margin: 40px;
@@ -162,7 +162,7 @@ p {
 }
 
 .paw-button-label {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: #d89a9a;
   font-weight: 600;
   margin-top: 10px;
@@ -208,7 +208,7 @@ p {
 }
 
 .button-label {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: #d89a9a;
   font-weight: 600;
   margin-top: 10px;
@@ -231,7 +231,7 @@ p {
 }
 
 .fortune-message p {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: #d89a9a;
   font-size: 18px;
   margin: 0 0 15px 0;
@@ -243,7 +243,7 @@ p {
   border-radius: 5px;
   padding: 8px 15px;
   cursor: pointer;
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: white;
 }
 
@@ -341,7 +341,7 @@ p {
   padding: 10px 20px;
   margin: 10px;
   cursor: pointer;
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: white;
   font-size: 16px;
 }
@@ -388,7 +388,7 @@ p {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: white;
   font-size: 24px;
   display: flex;
@@ -436,7 +436,7 @@ p {
   padding: 10px 20px;
   margin: 0 10px;
   cursor: pointer;
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
   color: white;
   font-size: 16px;
 }
@@ -462,7 +462,7 @@ p {
   padding: 8px;
   border: 1px solid #d89a9a;
   border-radius: 4px;
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Original Surfer', serif;
 }
 
 /* Light Mode Defaults */

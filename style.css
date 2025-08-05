@@ -21,8 +21,8 @@ h2 {
 a {
   color: #ff00ff;
   /* Custom cursor - image should be 32x32px or smaller for cross-browser compatibility */
-  cursor: url('images/zack-kitty-feet-1459485_1280.png') 16 16, pointer;
-  cursor: url('images/zack-kitty-feet-1459485_1280.png'), pointer;
+  cursor: url('images/cursor-pinkcatpaw.png') 16 16, pointer;
+  cursor: url('images/cursor-pinkcatpaw.png'), pointer;
   text-decoration: underline;
 }
 img {
